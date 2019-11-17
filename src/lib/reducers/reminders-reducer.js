@@ -1,27 +1,10 @@
 import uuid from 'uuid/v4'
-import moment from 'moment'
-import { ADD_REMINDER, DELETE_REMINDER, UPDATE_REMINDER } from '../actions/reminders-actions'
 
-const defaultState = [
-  {
-    id: uuid(),
-    when: moment(),
-    message: 'Implement reminders',
-    color: 'mediumseagreen'
-  },
-  {
-    id: uuid(),
-    when: moment().add(4, 'hours'),
-    message: 'Implement reminders',
-    color: 'mediumseagreen'
-  },
-  {
-    id: uuid(),
-    when: moment().subtract(1, 'hour'),
-    message: 'Implement reminders',
-    color: 'mediumseagreen'
-  }
-]
+import {
+  ADD_REMINDER,
+  DELETE_REMINDER,
+  UPDATE_REMINDER
+} from '../actions/reminders-actions'
 
 /**
  * Manage the "reminders" state.
@@ -31,7 +14,7 @@ const defaultState = [
  * @param {*} action
  * @returns
  */
-export default function remindersReducer (state = defaultState, action) {
+export default function remindersReducer (state = [], action) {
   switch (action.type) {
     case ADD_REMINDER:
       return [

@@ -5,7 +5,7 @@ import './App.scss'
 
 function App () {
   return (
-    <Container>
+    <Container className="pt-2">
       <Calendar />
     </Container>
   )
