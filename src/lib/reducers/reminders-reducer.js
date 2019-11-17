@@ -11,7 +11,7 @@ const defaultState = [
   },
   {
     id: uuid(),
-    when: moment().add(2, 'month'),
+    when: moment().add(2, 'month').subtract(4, 'days'),
     message: 'Implement multiple months',
     color: 'mediumseagreen'
   }
