@@ -11,8 +11,14 @@ const defaultState = [
   },
   {
     id: uuid(),
-    when: moment().add(2, 'month').subtract(4, 'days'),
-    message: 'Implement multiple months',
+    when: moment().add(4, 'hours'),
+    message: 'Implement reminders',
+    color: 'mediumseagreen'
+  },
+  {
+    id: uuid(),
+    when: moment().subtract(1, 'hour'),
+    message: 'Implement reminders',
     color: 'mediumseagreen'
   }
 ]

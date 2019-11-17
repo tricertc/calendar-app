@@ -2,12 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import moment from 'moment'
+import CalendarControls from './CalendarControls'
 import Day from './Day'
 
 const Header = props => {
   const cols = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
   return (
-    <div className="header" {...props}>
+    <div className="header grid" {...props}>
       {cols.map(c => <div key={c}>{c}</div>)}
     </div>
   )
@@ -25,15 +26,9 @@ function Calendar ({ year, month }) {
 
   return (
     <div className="Calendar">
-      <Header style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(7, 1fr)',
-        textAlign: 'center'
-      }}/>
-      <div className="days" style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(7, 1fr)'
-      }}>
+      <CalendarControls />
+      <Header />
+      <div className="days grid">
         {Array(numDays).fill(null).map((_, i) => (
           <Day
             key={dt.date(i + 1).format('YYYYMMDD')}
@@ -43,7 +38,6 @@ function Calendar ({ year, month }) {
           />
         ))}
       </div>
-      <em>...reminders...</em>
     </div>
   )
 }

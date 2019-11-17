@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import moment from 'moment'
+import Reminder from './reminders/Reminder'
+import { sortReminders } from '../lib/utils'
 
 /**
  * Render an individual calendar day.
@@ -13,12 +15,14 @@ import moment from 'moment'
 function Day ({ year, month, date, getReminders }) {
   const reminders = getReminders(year, month, date)
   const day = moment().year(year).month(month).date(date).day()
+
   return (
-    <pre style={{
-      gridColumn: day + 1
-    }}>
-      {JSON.stringify({ year, month, date, reminders }, null, 2)}
-    </pre>
+    <div className="Day" style={{ gridColumn: day + 1 }}>
+      <div className="date">{date}</div>
+      <div className="reminders">
+        {reminders.map(reminder => <Reminder key={reminder.id} reminder={reminder} />)}
+      </div>
+    </div>
   )
 }
 
@@ -32,11 +36,13 @@ Day.propTypes = {
 function mapStateToProps (state) {
   return {
     getReminders (year, month, date) {
-      return state.reminders.filter(reminder => {
+      const filteredReminders = state.reminders.filter(reminder => {
         return reminder.when.year() === year &&
         reminder.when.month() === month &&
         reminder.when.date() === date
       })
+
+      return sortReminders(filteredReminders)
     }
   }
 }
