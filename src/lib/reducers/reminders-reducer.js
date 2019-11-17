@@ -1,5 +1,6 @@
 import uuid from 'uuid/v4'
 import moment from 'moment'
+import { ADD_REMINDER } from '../actions/reminders-actions'
 
 const defaultState = [
   {
@@ -16,8 +17,25 @@ const defaultState = [
   }
 ]
 
+/**
+ * Manage the "reminders" state.
+ *
+ * @export
+ * @param {*} [state=defaultState]
+ * @param {*} action
+ * @returns
+ */
 export default function remindersReducer (state = defaultState, action) {
   switch (action.type) {
+    case ADD_REMINDER:
+      return [
+        ...state,
+        {
+          id: uuid(),
+          ...action.reminder
+        }
+      ]
+
     default:
       return state
   }

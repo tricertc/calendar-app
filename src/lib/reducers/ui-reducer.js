@@ -6,6 +6,14 @@ const defaultState = {
   month: 10
 }
 
+/**
+ * Manage the "ui" state.
+ *
+ * @export
+ * @param {*} [state=defaultState]
+ * @param {*} action
+ * @returns
+ */
 export default function uiReducer (state = defaultState, action) {
   switch (action.type) {
     case NEXT_MONTH:

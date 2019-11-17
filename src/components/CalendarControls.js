@@ -4,6 +4,12 @@ import { connect } from 'react-redux'
 import moment from 'moment'
 import { nextMonth, previousMonth } from '../lib/actions/ui-actions'
 
+/**
+ * Renders controls that allow you to move to the next and previous months.
+ *
+ * @param {*} { year, month, next, previous }
+ * @returns
+ */
 function CalendarControls ({ year, month, next, previous }) {
   const label = moment()
     .year(year)

@@ -2,6 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
+/**
+ * Renders a single month calendar view.
+ *
+ * @param {*} { year, month, reminders }
+ * @returns
+ */
 function Calendar ({ year, month, reminders }) {
   return (
     <div className="Calendar">
