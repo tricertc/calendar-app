@@ -2,10 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { CirclePicker } from 'react-color'
 
-const options = [
-  '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3',
-  '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39',
-  '#ffeb3b', '#ffc107', '#ff9800', '#ff5722', '#795548', '#607d8b'
+const colorOptions = [
+  '#03a9f4', '#8bc34a', '#cddc39',
+  '#ffeb3b', '#ff9800', '#ff5722'
 ]
 
 /**
@@ -18,12 +17,12 @@ const options = [
 export default function ColorPicker ({ color, onChange }) {
   const handleChange = color => onChange(color.hex)
   return (
-    <CirclePicker colors={options} color={color} onChange={handleChange} />
+    <CirclePicker colors={colorOptions} color={color} onChange={handleChange} />
   )
 }
 
 ColorPicker.defaultProps = {
-  color: options[0]
+  color: colorOptions[0]
 }
 
 ColorPicker.propTypes = {

@@ -35,6 +35,11 @@
   .reminders {
     margin-top: 16px;
   }
+
+  &.today {
+    background-color: #dfdfdf;
+    border: 2px solid #000 !important;
+  }
 }
 
 .Reminder {
@@ -42,6 +47,7 @@
   font-size: 0.7rem;
   padding: 2px 2px 2px 6px;
   margin-bottom: 1px;
+  cursor: pointer;
 
   .when, .message { display: inline; }
   .when:after { content: ' - '; }

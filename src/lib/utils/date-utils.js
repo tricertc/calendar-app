@@ -33,3 +33,17 @@ export function getNextMonth (year, month) {
     month: next.month()
   }
 }
+
+/**
+ * Check if the input year/month/date represent today.
+ *
+ * @export
+ * @param {number} year
+ * @param {number} month
+ * @param {number} date
+ * @returns
+ */
+export function isToday (year, month, date) {
+  const input = moment().year(year).month(month).date(date)
+  return moment().diff(input, 'days') === 0
+}

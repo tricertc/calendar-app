@@ -1,6 +1,6 @@
 import uuid from 'uuid/v4'
 import moment from 'moment'
-import { ADD_REMINDER } from '../actions/reminders-actions'
+import { ADD_REMINDER, DELETE_REMINDER, UPDATE_REMINDER } from '../actions/reminders-actions'
 
 const defaultState = [
   {
@@ -41,6 +41,20 @@ export default function remindersReducer (state = defaultState, action) {
           ...action.reminder
         }
       ]
+
+    case UPDATE_REMINDER:
+      return state.map(reminder => {
+        if (reminder.id === action.id) {
+          return {
+            ...reminder,
+            ...action.updates
+          }
+        }
+        return reminder
+      })
+
+    case DELETE_REMINDER:
+      return state.filter(reminder => reminder.id !== action.id)
 
     default:
       return state

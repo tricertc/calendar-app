@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import moment from 'moment'
 import CalendarControls from './CalendarControls'
+import AddReminderButton from './reminders/AddReminderButton'
+import EditReminderModal from './reminders/EditReminderModal'
 import Day from './Day'
 
 const Header = props => {
@@ -38,6 +40,8 @@ function Calendar ({ year, month }) {
           />
         ))}
       </div>
+      <AddReminderButton />
+      <EditReminderModal />
     </div>
   )
 }
